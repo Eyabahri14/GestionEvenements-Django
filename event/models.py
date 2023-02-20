@@ -23,7 +23,7 @@ class Event(models.Model):
 
     title = models.CharField(max_length=30)
     description = models.TextField()
-    image = models.ImageField(null=True)
+    image = models.ImageField(null=True , blank=True ,upload_to='images/')
     category = models.CharField(choices=category_list, max_length=10)
     state = models.BooleanField(default=False)
     nbr_participant = models.IntegerField(default=0)

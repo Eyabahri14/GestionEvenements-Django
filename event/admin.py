@@ -4,7 +4,7 @@ from .models import *
 
 
 
-
+from datetime import datetime
 #  nb : Try to use StackedInline instead of TabularInline
 class ParticipationInline(admin.TabularInline):
     model = participants
@@ -29,6 +29,8 @@ def set_Accept(ModelAdmin , request , queryset):
     messages.success(request,f'{msg} successfully updated' )
 
 
+
+
 # Change state to false with actions:
 def set_Refuse(ModelAdmin , request , queryset):
     rows_updated =  queryset.update(state=False)
@@ -48,13 +50,16 @@ set_Refuse.short_description = "State False"
 
 
 
+
+
 @admin.register(Event)
 class EventAdmin(admin.ModelAdmin):
-    list_display=('title', 'description' , 'evt_date','category','state', 'created_date','updated_date' ,'organisateur','event_nbr_participant')
+    list_display=('title', 'description' ,'image', 'evt_date','category','state', 'created_date','updated_date' ,'organisateur','event_nbr_participant')
      
 
-    list_filter = (
+    list_filter = (  
         'state','category',
+        
     )
 
 
@@ -73,7 +78,7 @@ class EventAdmin(admin.ModelAdmin):
     fieldsets = ( 
         
         ('Event description', {
-                'fields': ('title' ,'category','state','organisateur'),
+                'fields': ('title' ,'category','state','organisateur' , 'image'),
         }),
         ('Dates' , {
         'fields':('evt_date','created_date','updated_date'),

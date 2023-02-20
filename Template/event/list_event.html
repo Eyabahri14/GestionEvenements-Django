@@ -1,3 +1,24 @@
-<h1>List des evenements</h1>
+{% extends 'index.html' %} {% block body %}
+<div class="d-flex m-5 flex-wrap">
+  {% for p in events %}
 
-{% for i in l %} {{ i.title }} {{i.category}} {% endfor %}
+  <div class="card mx-5" style="width: 18rem">
+    <img src="{{ p.image.url }}" class="card-img-top" alt="test" />
+
+    <div class="card-body">
+      <h5 class="card-title">{{p.title}}</h5>
+
+      <p class="card-text">{{p.description}}</p>
+
+      <a href="" class="btn btn-primary">View Details</a>
+
+      <p class="card-text mt-2">Nombre : {{p.nbr_participant}}</p>
+    </div>
+    <div class="card-footer">
+      <small class="text-muted">{{p.evt_date}}</small>
+    </div>
+  </div>
+
+  {% endfor %}
+</div>
+{% endblock %}

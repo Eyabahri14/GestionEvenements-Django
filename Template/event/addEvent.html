@@ -1,0 +1,12 @@
+{% extends 'index.html' %} {% block body %}
+<form
+  method="post"
+  class="form-control"
+  enctype="multipart/form-data"
+  action="{% url 'add' %}"
+>
+  {% csrf_token %} {{form.as_ul}}
+
+  <input type="submit" value="Save" name="" id="" />
+</form>
+{% endblock %}
