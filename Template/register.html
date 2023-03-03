@@ -1,0 +1,14 @@
+{% extends 'index.html' %} 
+
+{% block body %}
+
+<div class="container w-25 mt-5">
+  <form method="POST">
+    {% csrf_token %}
+
+    <div class="form-control">{{ form.as_ul }}</div>
+
+    <button type="submit" class="btn btn-primary">Login</button>
+  </form>
+</div>
+{% endblock %}

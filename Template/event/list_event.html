@@ -10,7 +10,14 @@
 
       <p class="card-text">{{p.description}}</p>
 
-      <a href="" class="btn btn-primary">View Details</a>
+      <a href="{% url 'details' p.id %}" class="btn btn-primary"
+        >View Details</a
+      >
+      <a href="{% url 'ModifierEvenement' p.id %}" class="btn btn-warning"
+        >update</a
+      >
+
+      <a href="{% url 'deleteEvent' p.id  %}" class="btn btn-danger">delete</a>
 
       <p class="card-text mt-2">Nombre : {{p.nbr_participant}}</p>
     </div>

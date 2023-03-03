@@ -1,0 +1,16 @@
+{% extends 'index.html' %} {% block body %}
+<div class="container">
+  <h1>Update un événement</h1>
+  <form method="post" class="form-control" enctype="multipart/form-data">
+    {% csrf_token %}
+    <!-- <div class="form-group">
+      <label for="{{ form.titre.id_for_label }}" class="form-label"
+        >title:</label
+      >
+      {{ form.titre }}
+    </div> -->
+    <div class="form-group">{{form.as_ul}}</div>
+    <input type="submit" value="Save" />
+  </form>
+</div>
+{% endblock %}
