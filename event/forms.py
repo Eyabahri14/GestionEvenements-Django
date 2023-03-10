@@ -14,7 +14,7 @@ class EvenementForm(ModelForm):
         model = Event
         fields = "__all__"
 
-        exclude = ('participant', 'state', 'nbr_participant')
+        exclude = ('participant', 'state', 'nbr_participant','organisateur')
         widgets = {'description': TextInput(
             attrs={'cols': 10, 'rows': 10, 'class': 'form-control'}
         ), 'evt_date': DateInput(), }
